@@ -1,21 +1,26 @@
-from pathlib import Path
+# step1_load_data.py
 import pandas as pd
-from tqdm.notebook import tqdm
-from .config import GRANULARITIES, DATA_FOLDER_PATH
+from tqdm import tqdm
+from config import DATA_FOLDER_PATH, GRANULARITIES
+
+def get_project_names(code_snippets: dict) -> list:
+    """Helper to extract project names from the loaded keys."""
+    return list(code_snippets[GRANULARITIES[0]].keys())
 
 def load_code_snippets() -> dict:
-       
+    """Loads all CSV datasets into a nested dictionary structure."""
     code_snippets = {}
-    # Iterates over the directory and prints only files
-    for granularity in tqdm(GRANULARITIES):
-        folder_path = f"{DATA_FOLDER_PATH}/{granularity}"
-        path = Path(folder_path)
-        projects_file_names = [f.name for f in path.iterdir() if f.is_file()]
-
-        code_snippets[granularity] = {}
-        for project_file_name in projects_file_names:
-            project_name = project_file_name.split("-")[0]
+    
+    for granularity in tqdm(GRANULARITIES, desc="Loading granularities"):
+        folder_path = DATA_FOLDER_PATH / granularity
+        if not folder_path.exists():
+            raise FileNotFoundError(f"Missing directory: {folder_path}")
             
-            code_snippets[granularity][project_name] = pd.read_csv(f"{folder_path}/{project_file_name}")
-
+        project_files = [f for f in folder_path.iterdir() if f.is_file() and f.suffix == '.csv']
+        code_snippets[granularity] = {}
+        
+        for file_path in project_files:
+            project_name = file_path.name.split("-")[0]
+            code_snippets[granularity][project_name] = pd.read_csv(file_path)
+            
     return code_snippets
