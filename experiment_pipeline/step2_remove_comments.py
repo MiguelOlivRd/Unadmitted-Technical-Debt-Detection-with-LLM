@@ -2,6 +2,7 @@
 import pandas as pd
 from tqdm import tqdm
 from config import GRANULARITIES
+import re
 
 def verify_and_get_comment_columns(code_snippets: dict, project_names: list) -> list:
     """Verifies all granularities share identical comment columns and returns them."""
@@ -30,9 +31,19 @@ def remove_comments(code: str, comments_row: pd.Series) -> str:
     if not isinstance(code, str):
         return ""
         
-    for comment in comments_row:
-        if isinstance(comment, str) and comment.strip() != "":
-            code = code.replace(comment, "")
+    for comments in comments_row:
+        if isinstance(comments, str) and comments.strip() != "":
+            comments_list = comments.split("[[SEP]]")
+            for comment in comments_list:
+                for line in comment.split("\n"):
+                    code = code.replace(line.strip(), "", 1)
+
+    # Fix: Replace 3 or more consecutive newlines with just 2 newlines
+    code = re.sub(r'\n\s{1,}\n', '\n', code)
+
+    code = code.replace("@Deprecated", "")
+    code = code.replace("@deprecated", "")
+
     return code
 
 def clean_comments_pipeline(code_snippets: dict, project_names: list) -> dict:
