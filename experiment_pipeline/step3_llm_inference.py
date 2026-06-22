@@ -8,11 +8,11 @@ from prompt import generate_prompt
 
 # Initialize local OpenAI client
 client = OpenAI(base_url=BASE_URL, api_key="token-if-needed")
-MODEL_PATH = "/home/multiarq/.cache/instructlab/models/ibm-granite/granite-3.1-8b-instruct"
+MODEL = "~/.cache/instructlab/models/ibm-granite/granite-3.1-8b-instruct"
 
 def predict(prompt: str) -> str:
     completion = client.chat.completions.create(
-        model=MODEL_PATH,
+        model=MODEL,
         messages=[
             {"role": "system", "content": prompt}
             # {"role": "system", "content": "You are a precise code analysis assistant. Respond strictly with 'yes' or 'no'."},
