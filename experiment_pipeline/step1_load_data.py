@@ -5,7 +5,7 @@ from config import DATA_FOLDER_PATH, GRANULARITIES
 
 def get_project_names(code_snippets: dict) -> list:
     """Helper to extract project names from the loaded keys."""
-    return list(code_snippets[GRANULARITIES[0]].keys())
+    return sorted(list(code_snippets[GRANULARITIES[0]].keys()))
 
 def load_code_snippets() -> dict:
     """Loads all CSV datasets into a nested dictionary structure."""
