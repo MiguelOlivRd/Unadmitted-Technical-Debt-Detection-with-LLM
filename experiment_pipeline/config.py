@@ -8,7 +8,9 @@ DATASET_URL = "https://github.com/HduDBSI/Dataset4TD/releases/download/v2/code.s
 # Data configuration
 DATA_FOLDER_PATH = Path("./data")
 GRANULARITIES = ["file", "class", "method", "block"] 
+
 # define how many projects you want to evaluate
+# The original paper's dataset contains 18 projects
 PROJECT_LIMIT = 18
 LABEL_COLUMN_NAME = "CommentsAssociatedLabel"
 
