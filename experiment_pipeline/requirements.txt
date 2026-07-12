@@ -1,4 +1,0 @@
-pandas
-tqdm
-openai
-py7zr
