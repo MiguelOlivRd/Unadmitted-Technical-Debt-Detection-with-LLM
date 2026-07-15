@@ -1,0 +1,71 @@
+\begin{table*}[t]
+\centering
+\caption{Comprehensive evaluation results comparing LiteM and LR across four distinct code granularities (File, Class, Method, and Block) on subject projects. Performance is measured using Precision (P), Recall (R), F1-score (F1), Area Under Curve (AUC) and Matthews Correlation Coefficient (MCC). The highest values for each metric within a project and granularity are highlighted in bold.}
+\label{tab:evaluation_results}
+\resizebox{\textwidth}{!}{% 
+\begin{tabular}{ll|ccccc|ccccc|ccccc|ccccc}
+\toprule
+\multirow{2}{*}{Project} & \multirow{2}{*}{Technique} & \multicolumn{5}{c}{File} & \multicolumn{5}{c}{Class} & \multicolumn{5}{c}{Method} & \multicolumn{5}{c}{Block} \\
+\cmidrule(lr){3-7} \cmidrule(lr){8-12} \cmidrule(lr){13-17} \cmidrule(lr){18-22}
+ & & P & R & F1 & AUC & MCC & P & R & F1 & AUC & MCC & P & R & F1 & AUC & MCC & P & R & F1 & AUC & MCC \\
+\midrule
+\multirow{2}{*}{ANTLR4} & LiteM & \textbf{38.79} & 31.19 & \textbf{33.77} & \textbf{81.93} & \textbf{27.09} & \textbf{43.02} & 35.00 & 37.53 & \textbf{77.57} & \textbf{28.63} & \textbf{26.17} & 15.33 & \textbf{17.69} & \textbf{71.60} & \textbf{16.15} & \textbf{4.11} & \textbf{11.67} & \textbf{6.04} & \textbf{54.83} & \textbf{3.17} \\
+ & LR & 32.37 & \textbf{34.52} & 32.31 & 70.44 & 24.09 & 31.40 & \textbf{49.52} & \textbf{37.69} & 62.46 & 25.79 & 4.92 & \textbf{29.00} & 8.40 & 48.37 & 2.43 & 1.86 & \textbf{11.67} & 3.18 & 41.75 & -1.03 \\
+\hline
+\multirow{2}{*}{DBeaver} & LiteM & \textbf{27.85} & 24.47 & 24.45 & \textbf{77.02} & 21.59 & \textbf{29.04} & 31.60 & \textbf{30.13} & \textbf{76.85} & \textbf{25.41} & \textbf{16.93} & 27.85 & \textbf{20.99} & \textbf{69.07} & \textbf{16.61} & \textbf{44.46} & 12.14 & \textbf{14.20} & \textbf{63.33} & \textbf{17.90} \\
+ & LR & 20.55 & \textbf{50.34} & \textbf{29.10} & 74.76 & \textbf{26.64} & 20.40 & \textbf{42.40} & 27.50 & 73.00 & 22.58 & 7.69 & \textbf{47.51} & 13.22 & 63.67 & 8.84 & 10.75 & \textbf{18.38} & 9.41 & 51.96 & 5.12 \\
+\hline
+\multirow{2}{*}{Elasticsearch} & LiteM & \textbf{38.09} & \textbf{35.97} & \textbf{35.56} & \textbf{79.72} & \textbf{31.01} & 35.56 & \textbf{33.50} & \textbf{34.43} & \textbf{72.92} & \textbf{26.50} & \textbf{25.31} & 24.77 & \textbf{15.38} & \textbf{70.92} & \textbf{14.64} & \textbf{7.37} & \textbf{31.18} & \textbf{11.91} & \textbf{61.80} & \textbf{8.53} \\
+ & LR & 29.78 & 35.23 & 32.14 & 74.61 & 26.21 & \textbf{37.57} & 21.84 & 27.55 & 66.76 & 22.01 & 6.85 & \textbf{51.04} & 12.07 & 65.43 & 9.80 & 5.58 & 22.03 & 8.90 & 53.85 & 4.28 \\
+\hline
+\multirow{2}{*}{ExoPlayer} & LiteM & \textbf{49.71} & 46.03 & \textbf{47.48} & \textbf{76.15} & \textbf{36.23} & \textbf{43.97} & 41.97 & 42.83 & \textbf{75.60} & 32.24 & \textbf{86.64} & 46.33 & \textbf{60.14} & \textbf{85.87} & \textbf{61.70} & \textbf{66.49} & 33.41 & \textbf{43.98} & \textbf{77.30} & \textbf{45.78} \\
+ & LR & 48.70 & \textbf{47.52} & 45.91 & 74.36 & 34.92 & 39.69 & \textbf{50.87} & \textbf{44.51} & 72.77 & \textbf{32.60} & 9.53 & \textbf{55.12} & 16.24 & 64.48 & 10.99 & 10.25 & \textbf{51.21} & 17.04 & 70.60 & 18.03 \\
+\hline
+\multirow{2}{*}{FastJSON} & LiteM & \textbf{49.88} & 23.00 & \textbf{28.84} & \textbf{77.50} & \textbf{30.29} & \textbf{35.24} & 22.86 & \textbf{25.73} & \textbf{77.20} & \textbf{23.98} & \textbf{76.47} & 68.00 & \textbf{70.17} & \textbf{93.37} & \textbf{68.68} & \textbf{86.33} & \textbf{77.50} & \textbf{80.56} & \textbf{91.38} & \textbf{80.72} \\
+ & LR & 10.66 & \textbf{25.67} & 14.07 & 62.04 & 10.79 & 16.50 & \textbf{49.76} & 24.28 & 63.14 & 21.06 & 20.80 & \textbf{80.09} & 32.84 & 83.41 & 30.82 & 30.77 & 67.50 & 40.71 & 86.16 & 42.34 \\
+\hline
+\multirow{2}{*}{Flink} & LiteM & \textbf{27.79} & \textbf{35.88} & \textbf{31.25} & \textbf{78.90} & \textbf{26.09} & \textbf{28.20} & 34.96 & \textbf{31.19} & \textbf{79.91} & \textbf{26.82} & \textbf{12.25} & 39.96 & \textbf{18.73} & \textbf{74.00} & \textbf{17.85} & \textbf{43.62} & 16.05 & \textbf{13.42} & \textbf{58.18} & \textbf{17.33} \\
+ & LR & 22.98 & 34.47 & 27.48 & 71.12 & 21.93 & 21.88 & \textbf{35.50} & 27.01 & 72.38 & 22.34 & 4.88 & \textbf{43.28} & 8.78 & 63.02 & 6.67 & 4.36 & \textbf{21.86} & 7.27 & 52.42 & 5.72 \\
+\hline
+\multirow{2}{*}{Guava} & LiteM & \textbf{64.68} & \textbf{59.38} & \textbf{61.72} & \textbf{81.27} & \textbf{46.10} & \textbf{63.16} & \textbf{56.04} & \textbf{59.05} & \textbf{81.30} & \textbf{47.95} & \textbf{57.86} & 39.80 & \textbf{43.05} & \textbf{79.01} & \textbf{40.72} & \textbf{91.63} & \textbf{56.61} & \textbf{69.77} & \textbf{92.75} & \textbf{70.48} \\
+ & LR & 62.73 & 56.35 & 59.10 & 76.09 & 42.85 & 57.35 & 55.13 & 56.06 & 76.96 & 43.18 & 13.73 & \textbf{46.97} & 21.24 & 59.67 & 9.90 & 11.11 & 42.14 & 17.56 & 61.71 & 10.18 \\
+\hline
+\multirow{2}{*}{Jenkins} & LiteM & \textbf{65.10} & \textbf{54.22} & \textbf{58.62} & \textbf{78.96} & \textbf{44.24} & \textbf{58.31} & \textbf{50.86} & \textbf{54.26} & \textbf{76.23} & \textbf{38.99} & \textbf{30.97} & 41.02 & \textbf{35.20} & \textbf{70.42} & \textbf{24.09} & \textbf{14.17} & \textbf{27.75} & \textbf{18.66} & \textbf{59.00} & \textbf{10.38} \\
+ & LR & 58.37 & 48.23 & 52.20 & 72.32 & 35.35 & 53.69 & 46.04 & 49.38 & 70.90 & 32.73 & 16.96 & \textbf{49.38} & 25.24 & 58.45 & 8.52 & 9.21 & 13.73 & 11.01 & 49.33 & 2.06 \\
+\hline
+\multirow{2}{*}{LibGDX} & LiteM & \textbf{43.23} & 34.40 & \textbf{36.68} & \textbf{80.24} & \textbf{34.08} & \textbf{34.92} & 31.90 & \textbf{32.83} & \textbf{79.80} & \textbf{28.48} & \textbf{82.84} & 46.46 & \textbf{58.85} & \textbf{82.01} & \textbf{60.84} & \textbf{81.70} & 33.30 & \textbf{44.50} & \textbf{77.30} & \textbf{48.85} \\
+ & LR & 17.08 & \textbf{48.24} & 25.14 & 74.69 & 20.63 & 18.44 & \textbf{43.05} & 23.39 & 72.67 & 18.58 & 13.23 & \textbf{60.42} & 21.69 & 76.76 & 23.81 & 7.61 & \textbf{50.60} & 13.19 & 63.47 & 9.16 \\
+\hline
+\multirow{2}{*}{Logstash} & LiteM & \textbf{19.17} & 10.00 & 12.21 & \textbf{66.05} & 8.46 & \textbf{50.17} & 27.00 & \textbf{32.58} & \textbf{69.50} & \textbf{29.50} & \textbf{29.52} & 18.00 & \textbf{19.80} & \textbf{70.74} & \textbf{19.11} & \textbf{9.86} & 26.67 & \textbf{14.19} & 69.01 & 10.94 \\
+ & LR & 12.99 & \textbf{20.00} & \textbf{14.24} & 49.50 & \textbf{8.63} & 26.60 & \textbf{34.00} & 24.88 & 55.71 & 15.79 & 9.13 & \textbf{34.00} & 14.31 & 60.75 & 8.40 & 8.75 & \textbf{40.00} & 14.12 & \textbf{72.15} & \textbf{11.19} \\
+\hline
+\multirow{2}{*}{Mockito} & LiteM & \textbf{36.54} & 24.58 & \textbf{28.57} & \textbf{70.83} & \textbf{23.45} & \textbf{32.47} & \textbf{30.28} & \textbf{30.92} & \textbf{67.46} & \textbf{20.62} & \textbf{38.32} & 20.69 & \textbf{26.18} & \textbf{76.58} & \textbf{24.99} & \textbf{20.69} & 21.67 & 14.45 & \textbf{64.21} & 13.60 \\
+ & LR & 15.73 & \textbf{26.39} & 19.51 & 61.30 & 10.76 & 24.27 & 29.31 & 24.58 & 59.04 & 12.22 & 9.03 & \textbf{41.53} & 14.76 & 63.91 & 10.49 & 20.47 & \textbf{30.24} & \textbf{17.63} & 57.66 & \textbf{16.55} \\
+\hline
+\multirow{2}{*}{OpenRefine} & LiteM & \textbf{45.84} & 38.64 & \textbf{41.42} & \textbf{82.13} & \textbf{34.78} & \textbf{48.69} & \textbf{40.83} & \textbf{43.92} & \textbf{75.08} & \textbf{31.20} & \textbf{39.54} & 32.18 & \textbf{33.52} & \textbf{72.72} & \textbf{28.26} & \textbf{36.75} & \textbf{35.00} & \textbf{34.73} & \textbf{76.94} & \textbf{29.48} \\
+ & LR & 39.95 & \textbf{41.06} & 38.59 & 71.77 & 30.98 & 36.98 & 37.42 & 36.38 & 63.48 & 19.98 & 18.42 & \textbf{58.78} & 27.97 & 71.74 & 19.72 & 24.95 & 32.33 & 27.91 & 61.42 & 21.44 \\
+\hline
+\multirow{2}{*}{Presto} & LiteM & \textbf{34.39} & 32.50 & \textbf{33.31} & \textbf{75.24} & \textbf{28.06} & \textbf{38.83} & 31.19 & 34.52 & \textbf{65.93} & \textbf{21.74} & \textbf{23.38} & 34.34 & \textbf{27.75} & \textbf{71.65} & \textbf{19.55} & 11.20 & 36.18 & 17.08 & \textbf{66.33} & 12.04 \\
+ & LR & 25.98 & \textbf{45.17} & 32.95 & 74.71 & 27.03 & 34.49 & \textbf{36.75} & \textbf{35.45} & 63.67 & 20.26 & 12.57 & \textbf{50.99} & 20.16 & 62.70 & 9.36 & \textbf{11.47} & \textbf{37.12} & \textbf{17.50} & 60.88 & \textbf{12.61} \\
+\hline
+\multirow{2}{*}{Quarkus} & LiteM & \textbf{43.05} & 35.97 & \textbf{38.40} & \textbf{77.03} & \textbf{31.99} & \textbf{42.12} & \textbf{36.99} & \textbf{39.31} & \textbf{77.44} & \textbf{32.69} & \textbf{21.61} & 38.62 & \textbf{27.64} & \textbf{74.76} & \textbf{22.76} & \textbf{21.97} & \textbf{28.17} & \textbf{19.38} & \textbf{63.36} & \textbf{15.39} \\
+ & LR & 32.24 & \textbf{37.06} & 34.36 & 69.40 & 25.38 & 31.64 & 35.97 & 33.58 & 67.69 & 25.19 & 11.26 & \textbf{49.11} & 18.31 & 67.86 & 13.24 & 8.87 & 13.76 & 10.74 & 49.42 & 4.08 \\
+\hline
+\multirow{2}{*}{QuestDB} & LiteM & \textbf{31.52} & 22.68 & \textbf{23.41} & \textbf{80.10} & \textbf{23.15} & 42.11 & \textbf{25.00} & \textbf{27.96} & \textbf{69.26} & \textbf{26.05} & \textbf{61.26} & 20.27 & \textbf{29.51} & \textbf{75.97} & \textbf{33.35} & \textbf{41.72} & 30.00 & \textbf{26.17} & \textbf{69.63} & \textbf{28.86} \\
+ & LR & 12.81 & \textbf{28.21} & 14.08 & 74.91 & 13.01 & \textbf{43.90} & 23.75 & 22.86 & 64.37 & 20.71 & 2.91 & \textbf{28.45} & 5.28 & 65.96 & 3.26 & 9.81 & \textbf{33.64} & 15.15 & 65.55 & 14.41 \\
+\hline
+\multirow{2}{*}{Redisson} & LiteM & \textbf{57.50} & \textbf{42.50} & \textbf{46.76} & \textbf{88.72} & \textbf{47.17} & \textbf{57.08} & \textbf{33.33} & \textbf{35.31} & \textbf{86.94} & \textbf{38.96} & \textbf{65.95} & \textbf{67.38} & \textbf{64.65} & \textbf{97.98} & \textbf{65.17} & \textbf{90.62} & \textbf{77.86} & \textbf{82.79} & \textbf{90.46} & \textbf{81.77} \\
+ & LR & 22.66 & 41.67 & 25.23 & 64.38 & 25.60 & 39.79 & 26.67 & 23.69 & 72.46 & 25.94 & 49.98 & 29.52 & 33.16 & 92.45 & 35.70 & 63.56 & 65.71 & 63.04 & 82.14 & 59.42 \\
+\hline
+\multirow{2}{*}{RxJava} & LiteM & \textbf{57.60} & \textbf{47.50} & \textbf{50.05} & \textbf{88.17} & \textbf{49.30} & \textbf{59.02} & \textbf{43.75} & \textbf{48.29} & \textbf{89.02} & \textbf{46.51} & \textbf{81.82} & 64.71 & \textbf{70.43} & \textbf{93.77} & \textbf{70.86} & \textbf{70.38} & 45.42 & \textbf{51.56} & \textbf{87.20} & \textbf{52.98} \\
+ & LR & 26.64 & 40.56 & 25.47 & 77.65 & 24.94 & 44.28 & 33.47 & 27.97 & 75.59 & 26.98 & 14.58 & \textbf{73.57} & 24.29 & 83.50 & 27.31 & 11.36 & \textbf{51.25} & 18.54 & 71.20 & 17.47 \\
+\hline
+\multirow{2}{*}{Tink} & LiteM & \textbf{72.34} & \textbf{71.54} & \textbf{71.45} & \textbf{85.41} & \textbf{64.71} & \textbf{74.06} & 64.95 & \textbf{68.57} & \textbf{87.81} & \textbf{62.79} & \textbf{77.41} & 57.58 & \textbf{65.11} & \textbf{88.21} & \textbf{63.95} & \textbf{16.35} & \textbf{30.83} & \textbf{20.13} & \textbf{64.27} & \textbf{19.76} \\
+ & LR & 57.00 & 48.91 & 48.78 & 75.39 & 38.97 & 54.40 & \textbf{69.45} & 60.46 & 77.91 & 51.07 & 22.89 & \textbf{60.71} & 30.43 & 78.82 & 27.48 & 8.88 & 11.67 & 8.12 & 62.39 & 7.26 \\
+\hline
+\cellcolor{gray!15} & \cellcolor{gray!15} LiteM & \cellcolor{gray!15} \textbf{44.61} & \cellcolor{gray!15} 37.25 & \cellcolor{gray!15} \textbf{39.11} & \cellcolor{gray!15} \textbf{79.19} & \cellcolor{gray!15} \textbf{33.77} & \cellcolor{gray!15} \textbf{45.33} & \cellcolor{gray!15} 37.33 & \cellcolor{gray!15} \textbf{39.41} & \cellcolor{gray!15} \textbf{76.99} & \cellcolor{gray!15} \textbf{32.73} & \cellcolor{gray!15} \textbf{47.46} & \cellcolor{gray!15} 39.07 & \cellcolor{gray!15} \textbf{39.16} & \cellcolor{gray!15} \textbf{78.81} & \cellcolor{gray!15} \textbf{37.18} & \cellcolor{gray!15} \textbf{42.19} & \cellcolor{gray!15} \textbf{35.08} & \cellcolor{gray!15} \textbf{32.42} & \cellcolor{gray!15} \textbf{71.52} & \cellcolor{gray!15} \textbf{31.55} \\
+\cellcolor{gray!15}\multirow{-2}{*}{Average} & \cellcolor{gray!15} LR & \cellcolor{gray!15} 30.51 & \cellcolor{gray!15} \textbf{39.42} & \cellcolor{gray!15} 31.70 & \cellcolor{gray!15} 70.52 & \cellcolor{gray!15} 24.93 & \cellcolor{gray!15} 35.18 & \cellcolor{gray!15} \textbf{40.05} & \cellcolor{gray!15} 33.74 & \cellcolor{gray!15} 68.39 & \cellcolor{gray!15} 25.50 & \cellcolor{gray!15} 13.85 & \cellcolor{gray!15} \textbf{49.42} & \cellcolor{gray!15} 19.36 & \cellcolor{gray!15} 68.38 & \cellcolor{gray!15} 14.82 & \cellcolor{gray!15} 14.42 & \cellcolor{gray!15} 34.16 & \cellcolor{gray!15} 17.83 & \cellcolor{gray!15} 61.89 & \cellcolor{gray!15} 14.46 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
