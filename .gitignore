@@ -1,10 +1,17 @@
 # Correct folder formatting (no leading dot-slash, use trailing slash)
 to_delete/
-experiment_pipeline/checkpoints/
-experiment_pipeline/data/
+
+# Ignore everything inside checkpoints and data, but keep the folders
+experiment_pipeline/checkpoints/*
+!experiment_pipeline/checkpoints/.gitkeep
+
+experiment_pipeline/data/*
+!experiment_pipeline/data/.gitkeep
 
 # Correct specific file formatting
 experiment_pipeline/llm_inference_results.json
 
 # Correct wildcard global folder match
 **/__pycache__/
+
+venv
